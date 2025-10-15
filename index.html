@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>The Civic Voice | Civic Issue Reporter</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
+  <style>
+    body {
+      background-color: #0f1115;
+      color: #e0e0e0;
+      font-family: "Poppins", sans-serif;
+    }
+
+    /* Navbar */
+    .navbar {
+      background-color: #14161a !important;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.4);
+    }
+    .navbar-brand {
+      font-weight: 700;
+      color: #ff9100 !important;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url('https://source.unsplash.com/1600x700/?city,night,street') center/cover no-repeat;
+      color: #fff;
+      text-align: center;
+      padding: 7rem 1rem;
+    }
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      text-shadow: 0 2px 5px rgba(0,0,0,0.8);
+    }
+    .hero p {
+      font-size: 1.2rem;
+      color: #ccc;
+      margin-bottom: 2rem;
+    }
+    .hero .btn {
+      background-color: #ff9100;
+      border: none;
+      font-size: 1.1rem;
+      padding: 0.8rem 2rem;
+      border-radius: 50px;
+      transition: all 0.3s;
+    }
+    .hero .btn:hover {
+      background-color: #ffab2d;
+      transform: translateY(-3px);
+    }
+
+    /* Features */
+    #features {
+      background-color: #16181d;
+      padding: 4rem 0;
+    }
+    .feature-card {
+      background-color: #1f2127;
+      border-radius: 15px;
+      padding: 2rem;
+      text-align: center;
+      transition: all 0.3s;
+    }
+    .feature-card:hover {
+      transform: translateY(-5px);
+      background-color: #24272e;
+    }
+    .feature-card i {
+      color: #ff9100;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    /* How it works */
+    #howItWorks {
+      padding: 4rem 0;
+    }
+    .step {
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+    .step i {
+      color: #ff9100;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    /* Testimonials */
+    #testimonials {
+      background-color: #1c1e23;
+      padding: 4rem 0;
+    }
+    .testimonial {
+      background-color: #24272e;
+      border-radius: 15px;
+      padding: 2rem;
+      text-align: center;
+      color: #ccc;
+    }
+    .testimonial i {
+      color: #ff9100;
+      font-size: 2rem;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #14161a;
+      padding: 2rem 0;
+      color: #aaa;
+      text-align: center;
+    }
+    footer a {
+      color: #ff9100;
+      text-decoration: none;
+      margin: 0 8px;
+    }
+    footer a:hover {
+      color: #ffab2d;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">The Civic Voice</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto align-items-center">
+          <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="#features" class="nav-link">Features</a></li>
+          <li class="nav-item"><a href="#howItWorks" class="nav-link">How It Works</a></li>
+          <li class="nav-item"><a href="#testimonials" class="nav-link">Testimonials</a></li>
+          <li class="nav-item ms-3">
+            <a href="login.html" class="btn btn-sm btn-warning px-3">Login</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <h1>Report Civic Issues. Build a Cleaner City.</h1>
+      <p>Join the community-driven movement to make our cities cleaner, safer, and better.</p>
+      <a href="user-registration.html" class="btn btn-lg">Register to Report an Issue</a>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section id="features" class="container">
+    <div class="text-center mb-5">
+      <h2 class="fw-bold">Key Features</h2>
+      <p class="text-secondary">A simple, transparent way to report civic problems.</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="feature-card">
+          <i class="bi bi-geo-alt-fill"></i>
+          <h5>Smart Location Detection</h5>
+          <p>Automatically captures your current location or lets you mark it manually.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="feature-card">
+          <i class="bi bi-camera-fill"></i>
+          <h5>Upload Photos</h5>
+          <p>Add photos for better issue identification and quicker action.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="feature-card">
+          <i class="bi bi-clock-history"></i>
+          <h5>Track Progress</h5>
+          <p>Stay updated on the issue’s status — from reported to resolved.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section id="howItWorks" class="container">
+    <div class="text-center mb-5">
+      <h2 class="fw-bold">How It Works</h2>
+      <p class="text-secondary">Only three simple steps to make an impact!</p>
+    </div>
+    <div class="row">
+      <div class="col-md-4 step">
+        <i class="bi bi-pencil-square"></i>
+        <h5>1. Report</h5>
+        <p>Describe the issue, upload a photo, and mark the location.</p>
+      </div>
+      <div class="col-md-4 step">
+        <i class="bi bi-gear-fill"></i>
+        <h5>2. Review</h5>
+        <p>Admin reviews your report and updates its progress.</p>
+      </div>
+      <div class="col-md-4 step">
+        <i class="bi bi-check-circle-fill"></i>
+        <h5>3. Resolve</h5>
+        <p>Once fixed, you’ll be notified that your issue is resolved.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Impact Section -->
+<section id="impact" class="py-5" style="background-color:#16181d;">
+  <div class="container text-center">
+    <h2 class="fw-bold mb-4">Our Impact So Far</h2>
+    <p class="text-secondary mb-5">
+      Real-time stats showing how citizens and CityCare are making a difference.
+    </p>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="p-4 rounded-4" style="background-color:#1f2127;">
+          <i class="bi bi-flag-fill display-5 text-warning"></i>
+          <h3 class="fw-bold mt-3" id="totalReports">1,245</h3>
+          <p class="text-secondary">Total Issues Reported</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="p-4 rounded-4" style="background-color:#1f2127;">
+          <i class="bi bi-check-circle-fill display-5 text-success"></i>
+          <h3 class="fw-bold mt-3" id="resolvedReports">1,002</h3>
+          <p class="text-secondary">Issues Resolved</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="p-4 rounded-4" style="background-color:#1f2127;">
+          <i class="bi bi-hourglass-split display-5 text-info"></i>
+          <h3 class="fw-bold mt-3" id="pendingReports">243</h3>
+          <p class="text-secondary">Pending Issues</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <!-- Testimonials -->
+  <section id="testimonials">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="fw-bold">What People Say</h2>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="testimonial">
+            <i class="bi bi-chat-quote"></i>
+            <p>"The Civic Voice helped our locality get potholes fixed within days. Super easy!"</p>
+            <h6>- Aman Sharma</h6>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="testimonial">
+            <i class="bi bi-chat-quote"></i>
+            <p>"The transparency and tracking system make it so reliable!"</p>
+            <h6>- Riya Patel</h6>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="testimonial">
+            <i class="bi bi-chat-quote"></i>
+            <p>"Finally a platform where civic problems are taken seriously."</p>
+            <h6>- Sandeep Kaur</h6>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 The Civic Voice | All Rights Reserved</p>
+    <div>
+      <a href="#"><i class="bi bi-facebook"></i></a>
+      <a href="#"><i class="bi bi-twitter"></i></a>
+      <a href="#"><i class="bi bi-instagram"></i></a>
+      <a href="#"><i class="bi bi-envelope"></i></a>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

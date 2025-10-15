@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CityCare Dashboard</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<style>
+  body {
+    background: linear-gradient(135deg, #e0f7fa, #e8eaf6);
+    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+  }
+  .navbar {
+    background: linear-gradient(90deg, #007bff, #6610f2);
+  }
+  .navbar-brand, .nav-link {
+    color: #fff !important;
+  }
+  .card-category {
+    border-radius: 1rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+  .card-category:hover {
+    transform: translateY(-3px);
+  }
+  .category-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .sub-list {
+    margin-top: 10px;
+    padding-left: 20px;
+    display: none;
+  }
+  .status-badge {
+    padding: 4px 8px;
+    border-radius: 6px;
+    color: #fff;
+    font-size: 0.8rem;
+  }
+  .status-pending {background-color: #dc3545;}
+  .status-inprogress {background-color: #ffc107; color: #212529;}
+  .status-resolved {background-color: #28a745;}
+</style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark p-3">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-bold" href="#">CityCare Dashboard</a>
+  </div>
+</nav>
+
+<div class="container py-5">
+  <!-- Top Summary Cards -->
+  <div class="row g-4 mb-4 text-center">
+    <div class="col-md-4">
+      <div class="card p-3 bg-light">
+        <h5>Total Reports</h5>
+        <h3 id="totalReports">0</h3>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card p-3 bg-warning-subtle">
+        <h5>In Progress</h5>
+        <h3 id="inProgressReports">0</h3>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card p-3 bg-success-subtle">
+        <h5>Resolved</h5>
+        <h3 id="resolvedReports">0</h3>
+      </div>
+    </div>
+  </div>
+
+  <!-- Category Grid -->
+  <div class="row g-4">
+    <!-- Example: Cleanliness -->
+    <div class="col-md-4">
+      <div class="card card-category p-3" onclick="toggleSublist('cleanlinessList')">
+        <div class="category-header">
+          <h5>🧹 Cleanliness & Sanitation</h5>
+          <span>Total: <strong id="cleanlinessCount">0</strong></span>
+        </div>
+        <button class="btn btn-sm btn-outline-primary mt-2">Update</button>
+        <ul class="sub-list mt-2" id="cleanlinessList">
+          <li>Garbage collection not done</li>
+          <li>Overflowing dustbins</li>
+          <li>Litter on streets or public places</li>
+          <li>Drainage clogging or sewage overflow</li>
+          <li>Dead animals on road</li>
+          <li>Public toilet issues (dirty / broken / unavailable)</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Electricity -->
+    <div class="col-md-4">
+      <div class="card card-category p-3" onclick="toggleSublist('electricityList')">
+        <div class="category-header">
+          <h5>💡 Electricity & Lighting</h5>
+          <span>Total: <strong id="electricityCount">0</strong></span>
+        </div>
+        <button class="btn btn-sm btn-outline-primary mt-2">Update</button>
+        <ul class="sub-list mt-2" id="electricityList">
+          <li>Street lights not working</li>
+          <li>Electric poles damaged</li>
+          <li>Frequent power cuts</li>
+          <li>Exposed wires causing danger</li>
+          <li>High electricity bills / faulty meters</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Roads -->
+    <div class="col-md-4">
+      <div class="card card-category p-3" onclick="toggleSublist('roadsList')">
+        <div class="category-header">
+          <h5>🚧 Roads & Transport</h5>
+          <span>Total: <strong id="roadsCount">0</strong></span>
+        </div>
+        <button class="btn btn-sm btn-outline-primary mt-2">Update</button>
+        <ul class="sub-list mt-2" id="roadsList">
+          <li>Potholes or damaged roads</li>
+          <li>Broken footpaths</li>
+          <li>Traffic signal not working</li>
+          <li>Damaged or missing road signs</li>
+          <li>Encroachment on roads or sidewalks</li>
+          <li>Poor public transport facility / bus stop damage</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Repeat similarly for Water, Parks, Buildings, Public Safety, Health, Education, Housing, Digital, Miscellaneous -->
+  </div>
+</div>
+
+<script>
+  function toggleSublist(id){
+    const list = document.getElementById(id);
+    list.style.display = list.style.display === 'block' ? 'none' : 'block';
+  }
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
