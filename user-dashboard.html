@@ -103,52 +103,100 @@
       </div>
     </div>
 
-    <!-- Recent Reports Table -->
-    <div class="card p-4">
-      <h4 class="mb-3 fw-bold text-primary">Recent Reports</h4>
-      <div class="table-responsive">
-        <table class="table table-striped align-middle">
-          <thead>
-            <tr>
-              <th>Issue ID</th>
-              <th>Category</th>
-              <th>Location</th>
-              <th>Status</th>
-              <th>Date</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>#102</td>
-              <td>Garbage Overflow</td>
-              <td>Model Town</td>
-              <td><span class="badge bg-warning">In Progress</span></td>
-              <td>12 Oct 2025</td>
-              <td><a href="view_report.php?id=102"><i class="bi bi-eye-fill action-icon"></i></a></td>
-            </tr>
-            <tr>
-              <td>#101</td>
-              <td>Drainage Clogging</td>
-              <td>Hoshiarpur</td>
-              <td><span class="badge bg-success">Resolved</span></td>
-              <td>09 Oct 2025</td>
-              <td><a href="view_report.php?id=101"><i class="bi bi-eye-fill action-icon"></i></a></td>
-            </tr>
-            <tr>
-              <td>#100</td>
-              <td>Potholes</td>
-              <td>Civil Lines</td>
-              <td><span class="badge bg-danger">Pending</span></td>
-              <td>05 Oct 2025</td>
-              <td><a href="view_report.php?id=100"><i class="bi bi-eye-fill action-icon"></i></a></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
+   <!-- Recent Reports Section with Filter -->
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <h4 class="fw-bold text-primary mb-0">Recent Reports</h4>
 
+  <!-- Filter Dropdown -->
+  <div class="dropdown">
+    <label class="me-2 mb-0 fw-semibold">Filter by Status:</label>
+    <button class="btn btn-sm btn-outline-primary dropdown-toggle" type="button" id="statusFilter" data-bs-toggle="dropdown" aria-expanded="false">
+      All
+    </button>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="statusFilter">
+      <li><a class="dropdown-item active" href="#" data-status="all">All</a></li>
+      <li><a class="dropdown-item" href="#" data-status="pending">Pending</a></li>
+      <li><a class="dropdown-item" href="#" data-status="in-progress">In Progress</a></li>
+      <li><a class="dropdown-item" href="#" data-status="resolved">Resolved</a></li>
+    </ul>
   </div>
+</div>
+
+<!-- Recent Reports Table -->
+<div class="card p-4">
+  <div class="table-responsive">
+    <table class="table table-striped align-middle" id="reportsTable">
+      <thead>
+        <tr>
+          <th>Issue ID</th>
+          <th>Category</th>
+          <th>Location</th>
+          <th>Status</th>
+          <th>Date</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr data-status="in-progress">
+          <td>#102</td>
+          <td>Garbage Overflow</td>
+          <td>Model Town</td>
+          <td><span class="badge bg-warning">In Progress</span></td>
+          <td>12 Oct 2025</td>
+          <td><a href="view_report.php?id=102"><i class="bi bi-eye-fill action-icon"></i></a></td>
+        </tr>
+        <tr data-status="resolved">
+          <td>#101</td>
+          <td>Drainage Clogging</td>
+          <td>Hoshiarpur</td>
+          <td><span class="badge bg-success">Resolved</span></td>
+          <td>09 Oct 2025</td>
+          <td><a href="view_report.php?id=101"><i class="bi bi-eye-fill action-icon"></i></a></td>
+        </tr>
+        <tr data-status="pending">
+          <td>#100</td>
+          <td>Potholes</td>
+          <td>Civil Lines</td>
+          <td><span class="badge bg-danger">Pending</span></td>
+          <td>05 Oct 2025</td>
+          <td><a href="view_report.php?id=100"><i class="bi bi-eye-fill action-icon"></i></a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Optional: JS to filter rows -->
+<script>
+  const filterDropdown = document.querySelectorAll('.dropdown-item');
+  const tableRows = document.querySelectorAll('#reportsTable tbody tr');
+  const filterButton = document.getElementById('statusFilter');
+
+  filterDropdown.forEach(item => {
+    item.addEventListener('click', (e) => {
+      e.preventDefault();
+
+      // Update active class
+      filterDropdown.forEach(i => i.classList.remove('active'));
+      item.classList.add('active');
+
+      // Update button text
+      filterButton.textContent = item.textContent;
+
+      const status = item.dataset.status;
+
+      tableRows.forEach(row => {
+        if(status === 'all' || row.dataset.status === status){
+          row.style.display = '';
+        } else {
+          row.style.display = 'none';
+        }
+      });
+    });
+  });
+</script>
+
+            
 
   <footer class="text-center py-3 text-muted">
     © 2025 The Civic Voice | Civic Issue Reporting Portal

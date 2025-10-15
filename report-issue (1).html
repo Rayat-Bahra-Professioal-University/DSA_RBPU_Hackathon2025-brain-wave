@@ -1,0 +1,172 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Civic Issue Complaint Form</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: 
+        linear-gradient(rgba(18,18,18,0.85), rgba(18,18,18,0.85)),
+        url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
+      color: #ececec;
+      font-family: 'Inter', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .container {
+      width: 100%;
+      max-width: 600px;
+      background-color: rgba(30,30,30,0.9);
+      border-radius: 12px;
+      padding: 40px 30px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.7);
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .header h1 {
+      margin: 0;
+      font-size: 32px;
+      letter-spacing: 1.2px;
+    }
+    .header p {
+      margin-top: 8px;
+      color: #bbbbbb;
+      font-size: 16px;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+    label {
+      display: flex;
+      flex-direction: column;
+      font-size: 15px;
+      font-weight: 500;
+    }
+    input[type="text"],
+    input[type="email"],
+    select,
+    textarea {
+      margin-top: 8px;
+      padding: 14px 16px;
+      border: none;
+      border-radius: 8px;
+      background-color: #2f2f2f;
+      color: #ececec;
+      font-size: 15px;
+      outline: none;
+      transition: background-color 0.3s;
+    }
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    select:focus,
+    textarea:focus {
+      background-color: #3b3b3b;
+    }
+    input[type="file"] {
+      margin-top: 8px;
+      color: #ececec;
+    }
+    textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+    .location-group {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+    #location {
+      flex: 1;
+    }
+    .btn {
+      padding: 16px;
+      border: none;
+      border-radius: 8px;
+      background-color: #4a90e2;
+      color: #ffffff;
+      font-size: 17px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+    .btn:hover {
+      background-color: #357ab8;
+      transform: translateY(-2px);
+    }
+    .btn-secondary {
+      background-color: #555;
+    }
+    .btn-secondary:hover {
+      background-color: #666;
+      transform: translateY(-2px);
+    }
+  </style>
+  <script>
+    function fillLocation() {
+      const loc = document.getElementById('location');
+      if (!navigator.geolocation) {
+        alert('Geolocation not supported.');
+        return;
+      }
+      navigator.geolocation.getCurrentPosition(
+        pos => loc.value = `Lat: ${pos.coords.latitude.toFixed(5)}, Lon: ${pos.coords.longitude.toFixed(5)}`,
+        () => alert('Unable to fetch location.')
+      );
+    }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Report a Civic Issue</h1>
+      <p>Help us improve public infrastructure by reporting issues quickly and accurately.</p>
+    </div>
+    <form action="thankyou.html" method="post" enctype="multipart/form-data">
+      <label>
+        Full Name
+        <input type="text" name="name" placeholder="John Doe" required />
+      </label>
+      <label>
+        Email Address
+        <input type="email" name="email" placeholder="you@example.com" required />
+      </label>
+      <label>
+        Type of Issue
+        <select name="issue_type" required>
+          <option value="" disabled selected>Select issue type</option>
+          <option value="pothole">Pothole/Road Damage</option>
+          <option value="streetlight">Streetlight Outage</option>
+          <option value="garbage">Garbage Collection</option>
+          <option value="water">Water Leakage</option>
+          <option value="other">Other</option>
+        </select>
+      </label>
+      <label>
+        Issue Location
+        <div class="location-group">
+          <input id="location" type="text" name="location" placeholder="Use button to fill" readonly required />
+          <button type="button" class="btn btn-secondary" onclick="fillLocation()">Use My Location</button>
+        </div>
+      </label>
+      <label>
+        Detailed Description
+        <textarea name="description" placeholder="Describe the issue in detail…" required></textarea>
+      </label>
+      <label>
+        Upload Photo
+        <input type="file" name="image" accept="image/*" required />
+      </label>
+      <button type="submit" class="btn">Submit Complaint</button>
+    </form>
+  </div>
+</body>
+</html>

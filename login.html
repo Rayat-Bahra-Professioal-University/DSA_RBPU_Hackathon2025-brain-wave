@@ -156,7 +156,7 @@
             </div>
           </div>
 
-          <button type="submit" class="btn btn-primary btn-login">Login as User</button>
+          <a href="user-dashboard.html" class="btn btn-primary w-100">Login as User</a>
         </form>
       </div>
 
@@ -179,8 +179,8 @@
               Password must be at least 8 characters long and include uppercase, lowercase, and number.
             </div>
           </div>
+          <a href="admin/admin_dashboard.html" class="btn btn-primary w-100">Login as Admin</a>
 
-          <button type="submit" class="btn btn-danger btn-login">Login as Admin</button>
         </form>
       </div>
 
@@ -255,10 +255,7 @@
       document.getElementById('userEmailError').style.display = 'none';
       document.getElementById('userPasswordError').style.display = 'none';
 
-      if (validateEmail('userEmail', 'userEmailError') &&
-          validatePassword('userPassword', 'userPasswordError')) {
-        alert('✅ User logged in successfully!');
-      }
+     
     });
 
     document.getElementById('adminLoginForm').addEventListener('submit', (e) => {
